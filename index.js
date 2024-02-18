@@ -1,0 +1,17 @@
+
+addEventListener("DOMContentLoaded", (event) => {
+  var clave = document.getElementById("password");
+  const encrypted = "U2FsdGVkX18Lz/p9c/vXlmm4soYU2sfHSOao9zaSoobgN2TKp2AnuDo3GQEP0mxNuEgNBdGXiD7v1qRItGcOOlPzKSESeuoFU/ViFukYjGY4HHZ7GRX0Pw8SG9SMJNUwV/gH/pCfP74nYjT9l0VW7pqiABUnySLHMdlocyw2Og2UaT9HSUe+az2xCWusdnqzGDeLLCc21yoFxB/tK/iP0Yv8odz3sKg+a/PGsKwP8QSehy0LGVYfAs/XN7odamyAS8F3FchPuJD34/ASCN0F4X8vUDiCVJ9geD86DmgnyfRoliAFyDGjkWNyxMK/cHs2w+/JfzdB4q3vk55rLCOydPgLGhuM4A+A5O07JTPIxdCfKnQ5a7HTtwwVu+UmrlxlwHxsyx1B1cgAS3IU6fstUVYPppOl2fIMydc6trBr2xVBAA2MwarRIoM47t9pBpiZGlYfU5RzZ0F8IWd6rRlur4Z/zKvsbqkmEkr3rqFU/XEEF57VCiwRTS3N/BaIBfYQUyqXsAT7QsyivpKof4Fm5kvgb2v5lqN2nWj2ZruGdzJTTncjoh2ZF709AIDBWxE/XeRIwMzNuXS9JGHGQhqROITHNPwVV03vqJ78BMyHdq+aFzhtpHlhab/FPutT4gYjD82RFv2JAN8uK1uGfIUX9CdcboAUk/b9kSa0HXRrRBh6B7U6xmE7iEdjK+1p2XlJCY97HIYcnjfJ2V3W2ZJ4FAzlOAeOCT+kRl5ZIT0MKUh79bgU9KoH9VofJQYij0IotjJusnO7VaJqRRNxTMM1wPgUxXgfKbBfHfs4lr3jTHbsYq8cuoJPaJoGocMnd/1538gp1sCIbhNuwhM7eFVn7j0wXQFksyHhwq5O+m6avFHTJX3nRxlOPFD8pVFRYmclIyvY1dagg+spJb1mvUz+oaCpId76QzrT9VWVjyK8c4CTEXnVZQv+Mq3TmJ1zMGbwscgzzeZtY/63678bD+PXV25sHDCxeoJpZpOpvNzmY0A7cJKYQSSaOd52y0PSIl9PpVWYQkG4fHfjAha9UExUe36q7UPHtTjWWYdQe9nvVJSos+kGaeBdZVqscFsGf+x5yRUgzvenT9Sgu5l8fUq2kt4JoPeKzBBDbYVp9ZbeDySLUbASThtY2/PNCHzJGI1vDGmL9FOylMx7mfEZpUmNu6KTNtsfNLE1W0UBdjW7s+QXuKxuJOr1giI7EtTUoczsMq5fQutIxFuA0f8opHp4OZBs7+9R1QJmQmdzIMnzhTMmk/nphxqs1071AHRZFnepyIXNUAnDapwUvdyRilyTQkQwYAolxJw3Wq2bhpQwDFf9fQq7V9wz5P8RHOgPEOu9ChGMyBXr4uQhnLjDyOigy8ZlpxA2nJn3sZoUam4v6tahz7RfityTVwu2krWIlrxgCARkfv8+PgOTMiHVeowFNKmP9POpQtjNnhvpBcfOp7QD05gPbzfu1SmVa0uXPVe/SCuiSKc8dnMN9HzZNz1Oks94LYj2q09ypUuel8twctesaIAF0QJ1qdUKxvNsbyKvqJYE4zqmfudKnHqMdrxo+F8KyLy0TiPkUtsbeiKAjJYxaqLKX1Y0F7j1g6EzWFH/h1zDd3Y66NIAdxX+86iFj8VntFCy9JBPbBRI2MT8Ds2TzNWz2rwo+ZPnj+SRCtEHbKtbm86zj5FdhENDfcNAAd6GJqKv/C02a6PbfSgz/Qid4zU544nquDV3Wd49dciNCwBE8uT6CdIhxp2fmLf9cvQ7SVBaL6tPVOgNKicJaGB/5o7+2x1lg1nyCBKUvuC1rIdW9OySMPpntcmrPRcYlGPlbiJamTx23wW0kPy/tbHwfpBMIZglUNG4OGLI3J+2";
+  const cartaField = document.getElementById("carta")
+
+  clave.addEventListener("input", (event) => {
+    var decrypted = CryptoJS.AES.decrypt(encrypted, clave.value);
+    const decText = decrypted.toString(CryptoJS.enc.Utf8);
+    clave.style.opacity = 0;
+    if(decText.length > 0) {
+      cartaField.innerHTML = decText;
+      cartaField.className = "typing-demo";
+    }
+  })
+});
+
